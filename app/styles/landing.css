@@ -1,0 +1,76 @@
+body.landing {
+  background-color: white;
+}
+
+.hero-content {
+  position: relative;
+  min-height: 600px;
+}
+
+.hero-content .hero-title {
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  font-size:  4rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-shadow: 1px 1px 0px rgb(58,23,63);
+}
+
+.timer {
+  position: relative;
+  display: grid;
+}
+
+.current-time {
+  background: white;
+  position: relative;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+  font-size:  3rem;
+  font-weight: 300;
+}
+
+button {
+  position: relative;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: white;
+  display: table;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+button.start {
+  width: 200px;
+  background-color: lime;
+}
+
+button.break {
+  width: 200px;
+  background-color: lime;
+}
+
+button.reset {
+  width: 200px;
+  background-color: red;
+}
