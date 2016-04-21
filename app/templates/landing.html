@@ -1,6 +1,9 @@
 <section class="hero-content">
   <h1 class="hero-title">{{ landing.heroTitle }}</h1>
-  <div class="current-time">{{ landing.timer | timecode }}</div>
-    <button class="start" ng-show="!playing" ng-click="landing.timer.timeUpdate()">Start</button>
-    <button class="reset" ng-show="!playing">Reset</button>
+  <div class="current-time">{{ landing.timer.timeLeft }}</div>
+  <div class="buttons">
+    <button class="start" ng-show="!playing"  ng-click="landing.timer.startSession()">{{ landing.timer.buttonWords}}</button>
+    <button class="break" ng-show="playing">Reset</button>
+    <button class="reset">Take a Break</button>
+  </div>
 </section>

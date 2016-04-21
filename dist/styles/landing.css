@@ -65,6 +65,11 @@ button.start {
   background-color: lime;
 }
 
+button.break {
+  width: 200px;
+  background-color: lime;
+}
+
 button.reset {
   width: 200px;
   background-color: red;

@@ -4,7 +4,7 @@
       var seconds = Number.parseFloat(seconds);
 
       if (Number.isNaN(seconds)) {
-        return '25:00';
+        return timeLeft;
       }
 
       var wholeSeconds = Math.floor(seconds);

@@ -2,23 +2,28 @@
   function Timer($interval) {
     var Timer = {};
 
-    var timeLeft = 1500;
+
+    Timer.timeLeft = 1500;
+
+    Timer.buttonWords = "Start New Session";
 
     /**
+    *
     * @function timeUpdate
     * @desc updates timer
     */
-    var timeUpdate = function(time){
-      var timeLeft = 1500;
-      timeLeft--;
+    var timeUpdate = function(){
+      console.log('pickle!');
+      Timer.timeLeft--;
     };
 
-    $interval(timeUpdate, 1000);
+    Timer.startSession = function () {
+      console.log('This');
+      $interval(timeUpdate, 1000);
+    };
 
     return Timer;
   };
-
-
 
   angular
     .module('bloctime')
