@@ -2,24 +2,38 @@
   function Timer($interval) {
     var Timer = {};
 
-
     Timer.timeLeft = 1500;
 
     Timer.buttonWords = "Start New Session";
 
+    var started = false;
+
+    var start;
+
     /**
     *
     * @function timeUpdate
-    * @desc updates timer
+    * @desc starts countdown on timer
     */
     var timeUpdate = function(){
-      console.log('pickle!');
+      started = true;
+      Timer.buttonWords = "Reset";
       Timer.timeLeft--;
     };
 
+    var stop = function() {
+      $interval.cancel(start);
+      started = false;
+      Timer.timeLeft = 1500;
+      Timer.buttonWords = "Start New Session";
+    }
+
     Timer.startSession = function () {
-      console.log('This');
-      $interval(timeUpdate, 1000);
+      if (!started) {
+        start = $interval(timeUpdate, 1000);
+      } else {
+        stop();
+      }
     };
 
     return Timer;
