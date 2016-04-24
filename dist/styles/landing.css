@@ -61,16 +61,8 @@ button {
 }
 
 button.start {
-  width: 200px;
-  background-color: lime;
-}
-
-button.break {
-  width: 200px;
-  background-color: lime;
-}
-
-button.reset {
-  width: 200px;
-  background-color: red;
+  width: 150px;
+  height: 65px;
+  border-radius: 8px;
+  background-color: gray;
 }
