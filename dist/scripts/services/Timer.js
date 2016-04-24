@@ -12,6 +12,8 @@
 
     var start;
 
+    var numberOfSessionCompleted = 0;
+
     /**
     *
     * @function timeUpdate
@@ -21,8 +23,13 @@
       started = true;
       Timer.timeLeft--;
       if (Timer.timeLeft === 0 && !onBreak) {
-        Timer.buttonWords = "Take a Break";
-        resetBreak();
+        if (numberOfSessionCompleted !== 4) {
+          Timer.buttonWords = "Take a Break";
+          resetBreak();
+        } else {
+          Timer.buttonWords = "Big Break!";
+          reset30MinBreak();
+        }
       } else if (Timer.timeLeft === 0 && onBreak){
         Timer.buttonWords = "Start New Session";
         resetSession();
@@ -42,35 +49,45 @@
       started = false;
       onBreak = true;
       Timer.timeLeft = 300;
-      Timer.buttonBreakWords = "Take a Break";
+      Timer.buttonWords = "Take a Break";
+    };
+
+    var reset30MinBreak = function() {
+      $interval.cancel(start);
+      started = false;
+      onBreak = true;
+      Timer.timeLeft = 1800;
+      Timer.buttonWords = "Big Break!";
     };
 
     Timer.startSession = function () {
-      if (!started && !onBreak) {
+      if (!started && !onBreak && numberOfSessionCompleted !== 4) {
         Timer.buttonWords = "Reset";
         Timer.timeLeft = 1500;
+        numberOfSessionCompleted++;
         start = $interval(timeUpdate, 1000);
-      } else if (started && !onBreak) {
+      } else if (!started && !onBreak && numberOfSessionCompleted === 4) {
+        numberOfSessionCompleted = 0;
+        Timer.buttonWords = "Reset";
+        Timer.timeLeft = 1500;
+        numberOfSessionCompleted++;
+        start = $interval(timeUpdate, 1000);
+      } else if (started && !onBreak && numberOfSessionCompleted !== 4) {
         resetSession();
-      } else if (!started && onBreak) {
+      } else if (!started && onBreak && numberOfSessionCompleted !== 4) {
         Timer.buttonWords = "Reset";
         Timer.timeLeft = 300;
         start = $interval(timeUpdate, 1000);
-        if (Timer.timeLeft === 0) {
-          resetSession()
-        }
-      } else if (started && onBreak) {
+      } else if (started && onBreak && numberOfSessionCompleted !== 4) {
         resetBreak();
+      } else if (!started && onBreak && numberOfSessionCompleted === 4) {
+        Timer.buttonWords = "Reset";
+        Timer.timeLeft = 1800;
+        start = $interval(timeUpdate, 1000);
+      } else if(started && onBreak && numberOfSessionCompleted === 4) {
+        reset30MinBreak();
       }
     };
-
-    Timer.startBreak = function () {
-      if (!started) {
-
-      } else {
-
-      }
-    }
 
     return Timer;
   };
