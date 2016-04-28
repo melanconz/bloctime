@@ -1,5 +1,5 @@
 (function() {
-  function Timer($interval) {
+  function Timer($interval, $scope) {
     var Timer = {};
 
     Timer.timeLeft = 1500;
@@ -13,6 +13,11 @@
     var start;
 
     var numberOfSessionCompleted = 0;
+
+    Timer.mySound = new buzz.sound("/assets/sounds/myfile.mp3", {
+      preload: true
+    });
+
 
     /**
     *
@@ -30,7 +35,6 @@
           Timer.buttonWords = "Big Break!";
           reset30MinBreak();
         }
-      } else if (Timer.timeLeft === 0 && onBreak){
         Timer.buttonWords = "Start New Session";
         resetSession();
       }
