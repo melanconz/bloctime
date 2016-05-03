@@ -1,14 +1,14 @@
 body.landing {
-  background-color: white;
+  position:relative;
+  padding:0 0 0 55px;
 }
 
 .hero-content {
-  position: relative;
   min-height: 600px;
 }
 
 .hero-content .hero-title {
-  top: 40%;
+  top: 0;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -28,7 +28,6 @@ body.landing {
 }
 
 .current-time {
-  background: white;
   position: relative;
   top: 50%;
   bottom: 0;
@@ -45,13 +44,13 @@ body.landing {
 }
 
 button {
-  position: relative;
+  position: inherit;
   top: 50%;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
-  color: white;
+  color: black;
   display: table;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -60,9 +59,44 @@ button {
   text-align: center;
 }
 
+.task-bar {
+  position:relative;
+  padding:0 0 0 55px;
+  background: gray;
+  float: left;
+  top: 60%;
+}
+
+.task-title {
+  width: 200px;
+}
+
+.task-entry-box {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:1px;
+  width:50px;
+  background:#000;
+}
+
+.tasks-list {
+  position: relative;
+  width: 200px;
+  height: 25px;
+}
+
+
+button.task-button {
+  width: 150px;
+  border-radius: 5px;
+  background-color: white;
+}
+
 button.start {
   width: 150px;
   height: 65px;
   border-radius: 8px;
+  color: white;
   background-color: gray;
 }

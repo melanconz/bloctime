@@ -1,6 +1,26 @@
+  <section class="task-bar" ng-controller="TasksCtrl as taskCtrl">
+    <div class="container">
+      <div class="task-entry-box">
+        <div>
+          <div class="task-title">
+            Task History
+          </div>
+          <input type="text" name="task" value="add task name" ng-model="taskCtrl.newTask" >
+          <br>
+          <br>
+          <button class="task-button" type="button" ng-click="addTask(taskCtrl.newTask)" name="button">Add task</button>
+          <br>
+          <div class="tasks-list" ng-repeat="task in taskCtrl.tasks">
+            {{ task.$value }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 <section class="hero-content">
-  <h1 class="hero-title">{{ landing.heroTitle }}</h1>
+  <div><h1 class="hero-title">{{ landing.heroTitle }}</h1></div>
   <div class="current-time">{{ landing.timer.timeLeft | timecode }}</div>
+
   <div class="buttons">
     <button class="start" ng-click="landing.timer.startSession()">{{ landing.timer.buttonWords}}</button>
   </div>

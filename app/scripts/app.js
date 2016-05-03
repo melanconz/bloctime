@@ -13,6 +13,8 @@
             controller: 'LandingCtrl as landing',
             templateUrl: '/templates/landing.html'
           });
+
+
      }
 
      angular
