@@ -5,12 +5,12 @@
           <div class="task-title">
             Task History
           </div>
-          <input type="text" name="task" value="add task name" ng-model="taskCtrl.newTask" >
+          <input type="text" name="task" placeholder="add task name" ng-model="taskCtrl.newTask" >
           <br>
           <br>
           <button class="task-button" type="button" ng-click="addTask(taskCtrl.newTask)" name="button">Add task</button>
           <br>
-          <div class="tasks-list" ng-repeat="task in taskCtrl.tasks">
+          <div class="tasks-list" ng-repeat="task in taskCtrl.tasks | orderBy: 'created_at' : true">
             {{ task.$value }}
           </div>
         </div>
